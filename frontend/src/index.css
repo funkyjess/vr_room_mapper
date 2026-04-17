@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-steam-darker text-steam-light;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Custom scrollbar for Steam-like look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-steam-darker;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-steam-gray rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-steam-blue;
+}
+
+/* Canvas drawing styles */
+.perimeter-canvas {
+  cursor: crosshair;
+}
+
+.perimeter-canvas.drawing {
+  cursor: pointer;
+}
+
+.point-marker {
+  @apply absolute w-4 h-4 -ml-2 -mt-2 rounded-full bg-steam-blue border-2 border-white shadow-lg cursor-move;
+}
+
+.point-marker:hover {
+  @apply bg-white border-steam-blue;
+  transform: scale(1.2);
+}
+
+.line-segment {
+  @apply absolute bg-steam-blue opacity-70;
+  height: 2px;
+  transform-origin: left center;
+}
