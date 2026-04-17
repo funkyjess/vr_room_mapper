@@ -62,7 +62,7 @@ export default function ChaperoneExport({ photos }: ChaperoneExportProps) {
               const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
               return `${days[d.getDay()]} ${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')} ${d.getFullYear()}`
             })(),
-            universeID: Date.now().toString(),
+            universeID: "1775924886", // Use same universeID as working chaperone file
           },
         ],
       }
