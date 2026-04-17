@@ -39,6 +39,7 @@ class ChaperoneUniverse(BaseModel):
     universeID: str
 
 class ChaperoneConfig(BaseModel):
+    jsonid: Optional[str] = None
     version: int
     universes: List[ChaperoneUniverse]
 

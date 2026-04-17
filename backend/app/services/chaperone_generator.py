@@ -66,7 +66,11 @@ class ChaperoneGenerator:
         seated_pos = [room_center[0], -0.3, room_center[2]]  # Slightly below floor
         standing_pos = [room_center[0], 0, room_center[2]]    # Floor level
         
+        # Format time like SteamVR: "Thu Apr 16 08:42:56 2026"
+        time_str = datetime.now().strftime("%a %b %d %H:%M:%S %Y")
+        
         config = {
+            "jsonid": "chaperone_info",
             "version": 5,
             "universes": [
                 {
@@ -80,7 +84,7 @@ class ChaperoneGenerator:
                         "translation": standing_pos,
                         "yaw": 0.0
                     },
-                    "time": datetime.now().isoformat(),
+                    "time": time_str,
                     "universeID": universe_id
                 }
             ]

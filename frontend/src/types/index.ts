@@ -53,6 +53,7 @@ export interface ChaperoneUniverse {
 }
 
 export interface ChaperoneConfig {
+  jsonid?: string;
   universes: ChaperoneUniverse[];
   version: number;
 }

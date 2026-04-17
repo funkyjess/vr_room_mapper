@@ -35,25 +35,28 @@ export default function ChaperoneExport({ photos }: ChaperoneExportProps) {
     try {
       // TODO: Call backend to generate chaperone config from photos
       const mockConfig: ChaperoneConfig = {
+        jsonid: 'chaperone_info',
         version: 5,
         universes: [
           {
             collision_bounds: [
-              [[-2, 0, -2], [-2, 2.43, -2], [2, 2.43, -2], [2, 0, -2]],
-              [[2, 0, -2], [2, 2.43, -2], [2, 2.43, 2], [2, 0, 2]],
-              [[2, 0, 2], [2, 2.43, 2], [-2, 2.43, 2], [-2, 0, 2]],
-              [[-2, 0, 2], [-2, 2.43, 2], [-2, 2.43, -2], [-2, 0, -2]],
+              [[-2.005, 0, 1.159], [-2.005, 2.43, 1.159], [-0.968, 2.43, 1.139], [-0.968, 0, 1.139]],
+              [[-0.968, 0, 1.139], [-0.968, 2.43, 1.139], [0.405, 2.43, 1.823], [0.405, 0, 1.823]],
+              [[0.405, 0, 1.823], [0.405, 2.43, 1.823], [1.995, 2.43, 1.481], [1.995, 0, 1.481]],
+              [[1.995, 0, 1.481], [1.995, 2.43, 1.481], [2.494, 2.43, -1.125], [2.494, 0, -1.125]],
+              [[2.494, 0, -1.125], [2.494, 2.43, -1.125], [-2.112, 2.43, -1.091], [-2.112, 0, -1.091]],
+              [[-2.112, 0, -1.091], [-2.112, 2.43, -1.091], [-2.005, 2.43, 1.159], [-2.005, 0, 1.159]],
             ],
             play_area: [3.2, 1.7],
             seated: {
-              translation: [0, 0, 0],
-              yaw: 0,
+              translation: [0.442, -0.295, 3.787],
+              yaw: -3.019,
             },
             standing: {
-              translation: [0, 0, 0],
-              yaw: 0,
+              translation: [0.299, 0.947, 3.366],
+              yaw: -1.389,
             },
-            time: new Date().toISOString(),
+            time: new Date().toDateString() + ' ' + new Date().toLocaleTimeString(),
             universeID: Date.now().toString(),
           },
         ],
