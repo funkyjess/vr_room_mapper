@@ -136,9 +136,9 @@ async def apply_to_steamvr(config: ChaperoneConfig):
             backup_path = STEAMVR_CONFIG_PATH / f"chaperone_info_backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}.vrchap"
             shutil.copy(chaperone_path, backup_path)
         
-        # Write new config (Pydantic v2: model_dump() instead of dict())
+        # Write new config (Pydantic v2: model_dump() with exclude_none=False to include jsonid)
         with open(chaperone_path, "w") as f:
-            json.dump(config.model_dump(), f, indent=2)
+            json.dump(config.model_dump(exclude_none=False), f, indent=2)
         
         return {
             "status": "success",
