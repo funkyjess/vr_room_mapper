@@ -1,1 +1,29 @@
-frontend\node_modules
+# Dependencies
+frontend/node_modules
+backend/venv/
+backend/__pycache__/
+backend/**/*.pyc
+backend/.pytest_cache/
+
+# Build outputs
+frontend/dist/
+frontend/build/
+
+# Uploads and generated data
+backend/uploads/
+backend/*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+*.egg-info/
+dist/
+build/
