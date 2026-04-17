@@ -118,6 +118,10 @@ async def get_steamvr_status():
 @app.post("/api/steamvr/apply")
 async def apply_to_steamvr(config: ChaperoneConfig):
     """Apply generated chaperone config to SteamVR"""
+    # Debug: log what we received
+    print(f"DEBUG: Received config.jsonid = {config.jsonid}")
+    print(f"DEBUG: Config model_dump = {config.model_dump(exclude_none=False)}")
+    
     if not STEAMVR_CONFIG_PATH.exists():
         raise HTTPException(status_code=404, detail="SteamVR config directory not found")
     

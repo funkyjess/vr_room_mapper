@@ -56,7 +56,12 @@ export default function ChaperoneExport({ photos }: ChaperoneExportProps) {
               translation: [0.298864633, 0.946626484, 3.36617875],
               yaw: -1.3893714,
             },
-            time: new Date().toLocaleString('en-US', { weekday: 'short', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit', year: 'numeric', hour12: false }).replace(',', ''),
+            time: (() => {
+              const d = new Date()
+              const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+              const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+              return `${days[d.getDay()]} ${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(d.getSeconds()).padStart(2, '0')} ${d.getFullYear()}`
+            })(),
             universeID: Date.now().toString(),
           },
         ],
