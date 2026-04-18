@@ -119,6 +119,27 @@ When multiple photos provided:
 3. Clusters and averages nearby points from different views
 4. Applies Laplacian smoothing for clean edges
 
+### How Room Dimensions Are Calculated
+
+```mermaid
+flowchart TD
+    A[Upload Photos<br/>1-6 angles] --> B[Draw Perimeter<br/>on each photo]
+    B --> C[AI Estimates Depth<br/>ZoeDepth model]
+    C --> D[Convert 2D → 3D<br/>pixels to meters]
+    D --> E[Build Wall Quads<br/>floor to ceiling]
+    E --> F[Connect Walls<br/>into closed room]
+    F --> G[Export Chaperone<br/>.vrchap file]
+
+    H[Camera Position<br/>calculated from EXIF] -.-> C
+    I[Room Height<br/>2.43m default] -.-> E
+```
+
+**Key Steps Explained:**
+- **Depth Estimation**: AI predicts distance from camera to each wall point
+- **3D Projection**: Combines pixel position + depth + camera angle to get real-world coordinates
+- **Wall Building**: Each wall segment becomes a vertical quad from floor (y=0) to ceiling (y=2.43m)
+- **Closed Room**: Walls must form a complete loop - last point connects back to first
+
 ## Development
 
 ### Frontend Lint Errors
